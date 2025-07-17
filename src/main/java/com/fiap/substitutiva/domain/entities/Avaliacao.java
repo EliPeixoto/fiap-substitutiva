@@ -1,19 +1,27 @@
 package com.fiap.substitutiva.domain.entities;
 
-public class Avaliacao {
-    private Long id;
-    private Agendamento agendamento;
-    private Double nota;
+import java.util.Objects;
+
+public class Avaliacao {private Long id;
+    private Long idCliente;
+    private int estrelas;
     private String comentario;
+    private Long idEstabelecimento;
+    private Long idProfissional;
 
     public Avaliacao() {
     }
 
-    public Avaliacao(Long id, Agendamento agendamento, Double nota, String comentario) {
+    public Avaliacao(Long id, Long idCliente, int estrelas, String comentario, Long idEstabelecimento, Long idProfissional) {
+        if(estrelas < 0 || estrelas > 5) { throw new IllegalStateException("A avaliação deve conter de 0 a 5 estrelas"); }
+        if(Objects.nonNull(idEstabelecimento) && Objects.nonNull(idProfissional)) { throw new IllegalStateException("Não avalie um profissional e um estabelecimento simultâneamente"); }
+
         this.id = id;
-        this.agendamento = agendamento;
-        this.nota = nota;
+        this.idCliente = idCliente;
+        this.estrelas = estrelas;
         this.comentario = comentario;
+        this.idEstabelecimento = idEstabelecimento;
+        this.idProfissional = idProfissional;
     }
 
     public Long getId() {
@@ -24,20 +32,20 @@ public class Avaliacao {
         this.id = id;
     }
 
-    public Agendamento getAgendamento() {
-        return agendamento;
+    public Long getIdCliente() {
+        return idCliente;
     }
 
-    public void setAgendamento(Agendamento agendamento) {
-        this.agendamento = agendamento;
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public Double getNota() {
-        return nota;
+    public int getEstrelas() {
+        return estrelas;
     }
 
-    public void setNota(Double nota) {
-        this.nota = nota;
+    public void setEstrelas(int estrelas) {
+        this.estrelas = estrelas;
     }
 
     public String getComentario() {
@@ -46,5 +54,21 @@ public class Avaliacao {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public Long getIdEstabelecimento() {
+        return idEstabelecimento;
+    }
+
+    public void setIdEstabelecimento(Long idEstabelecimento) {
+        this.idEstabelecimento = idEstabelecimento;
+    }
+
+    public Long getIdProfissional() {
+        return idProfissional;
+    }
+
+    public void setIdProfissional(Long idProfissional) {
+        this.idProfissional = idProfissional;
     }
 }

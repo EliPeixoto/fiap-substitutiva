@@ -1,27 +1,35 @@
 package com.fiap.substitutiva.domain.entities;
 
+import com.fiap.substitutiva.domain.entities.constant.StatusEnum;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Agendamento {
     private Long id;
-    private LocalDateTime dataHora;
-    private Estabelecimento estabelecimento;
-    private Profissional profissional;
-    private Cliente cliente;
-    private Servico servico;
-    private StatusAgendamento status;
+    private Long idProfissional;
+    private Long idEstabelecimento;
+    private Long idCliente;
+    private Long idServico;
+    private StatusEnum status;
+    private LocalDate data;
+    private LocalTime horaInicio;
+    private LocalTime horaTermino;
 
     public Agendamento() {
     }
 
-    public Agendamento(Long id, LocalDateTime dataHora, Estabelecimento estabelecimento, Profissional profissional, Cliente cliente, Servico servico, StatusAgendamento status) {
+    public Agendamento(Long id, Long idProfissional, Long idEstabelecimento, Long idCliente, Long idServico, StatusEnum status, LocalDate data, LocalTime horaInicio, LocalTime horaTermino) {
         this.id = id;
-        this.dataHora = dataHora;
-        this.estabelecimento = estabelecimento;
-        this.profissional = profissional;
-        this.cliente = cliente;
-        this.servico = servico;
+        this.idProfissional = idProfissional;
+        this.idEstabelecimento = idEstabelecimento;
+        this.idCliente = idCliente;
+        this.idServico = idServico;
         this.status = status;
+        this.data = data;
+        this.horaInicio = horaInicio;
+        this.horaTermino = horaTermino;
     }
 
     public Long getId() {
@@ -32,51 +40,67 @@ public class Agendamento {
         this.id = id;
     }
 
-    public LocalDateTime getDataHora() {
-        return dataHora;
+    public Long getIdProfissional() {
+        return idProfissional;
     }
 
-    public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
+    public void setIdProfissional(Long idProfissional) {
+        this.idProfissional = idProfissional;
     }
 
-    public Estabelecimento getEstabelecimento() {
-        return estabelecimento;
+    public Long getIdEstabelecimento() {
+        return idEstabelecimento;
     }
 
-    public void setEstabelecimento(Estabelecimento estabelecimento) {
-        this.estabelecimento = estabelecimento;
+    public void setIdEstabelecimento(Long idEstabelecimento) {
+        this.idEstabelecimento = idEstabelecimento;
     }
 
-    public Profissional getProfissional() {
-        return profissional;
+    public Long getIdCliente() {
+        return idCliente;
     }
 
-    public void setProfissional(Profissional profissional) {
-        this.profissional = profissional;
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Long getIdServico() {
+        return idServico;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setIdServico(Long idServico) {
+        this.idServico = idServico;
     }
 
-    public Servico getServico() {
-        return servico;
-    }
-
-    public void setServico(Servico servico) {
-        this.servico = servico;
-    }
-
-    public StatusAgendamento getStatus() {
+    public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(StatusAgendamento status) {
+    public void setStatus(StatusEnum status) {
         this.status = status;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public LocalTime getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(LocalTime horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public LocalTime getHoraTermino() {
+        return horaTermino;
+    }
+
+    public void setHoraTermino(LocalTime horaTermino) {
+        this.horaTermino = horaTermino;
     }
 }
