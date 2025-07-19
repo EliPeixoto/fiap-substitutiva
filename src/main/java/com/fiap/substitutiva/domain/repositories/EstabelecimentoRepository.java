@@ -7,7 +7,9 @@ import java.util.Optional;
 
 public interface EstabelecimentoRepository {
 
-    Estabelecimento save(Estabelecimento e);
+    Estabelecimento salvar(Estabelecimento e);
     Optional<Estabelecimento> findById(Long id);
     List<Estabelecimento> findAll();
+
+    boolean existePorId(Long id);
 }
